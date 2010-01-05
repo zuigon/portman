@@ -1,0 +1,29 @@
+511: 
+  desc: CoD2 server 1
+  host: 192.168.1.250
+  port: 28961
+  proto: udp
+522: 
+  desc: CoD2 server 2
+  host: 192.168.1.250
+  port: 28962
+  proto: udp
+1005: 
+  desc: ""
+  host: 192.168.1.5
+  port: 2201
+1011: 
+  desc: ""
+  host: 192.168.1.1
+  port_na: 22
+  port_sa: 2211
+1012: 
+  desc: ""
+  host: 192.168.1.250
+  port_na: 22
+  port_sa: 2212
+1013: 
+  desc: ""
+  host: 192.168.1.6
+  port_na: 22
+  port_sa: 2213
