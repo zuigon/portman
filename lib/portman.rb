@@ -146,6 +146,12 @@ module Portman
       channel.wait
     end
 
+    def show_man_rules  # TODO
+      r = '\"description (.)#PortMan\"'
+      cmd = "configure; show service nat rule | egrep #{r} -B1; exit; exit;"
+      system "echo \"#{cmd}\" | ssh -tt -l #{@data[:user]} #{@data[:host]}"
+    end
+
   end
 
   class CmdFormat
@@ -160,7 +166,8 @@ if __FILE__ == $0
   include Portman
   @config = YAML.load(File.open("config.yml"))["ssh"]
   h2 = Host.new(@config) # ILI: h = Host.new( "192.168.1.1","root","...." )
-  h2.load_rules(YAML.load(File.open("rules.yml")))
-  comm = CmdFormat.new(h2.gen_rules_cmds).full_cmd
-  puts h2.exec_cmdline(comm)
+  # h2.load_rules(YAML.load(File.open("rules.yml")))
+  # comm = CmdFormat.new(h2.gen_rules_cmds).full_cmd
+  # puts h2.exec_cmdline(comm)
+  puts h2.show_man_rules
 end
